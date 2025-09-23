@@ -1,0 +1,24 @@
+:root {
+  --vt-c-text-1: #000;
+  --color-gradient: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+}
+
+:root {
+  --color-background: var(--color-gradient);
+  --color-text: var(--vt-c-text-1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  font-family: 'Roboto', sans-serif;
+}
