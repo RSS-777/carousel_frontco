@@ -57,7 +57,7 @@ const handleDeleteFavorite = (id) => {
   flex-direction: column;
   list-style: none;
   gap: 10px;
-  max-height: 150px;
+  max-height: 250px;
   max-width: 450px;
   margin: 0 auto 5px;
   padding: 10px;
