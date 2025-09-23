@@ -11,7 +11,7 @@ const handleDeleteFavorite = (id) => {
 <template>
   <div class="selected" v-if="selectedStore.selected.length">
     <h2 class="selected__title">Selected Images</h2>
-    <ul class="selected__list">
+    <transition-group name="fade" tag="ul" class="selected__list">
       <li v-for="item in selectedStore.selected" :key="item.id" class="selected__item">
         <div>
           <img :src="item.url" :alt="`Photo by ${item.author}`" class="selected__img" />
@@ -23,12 +23,29 @@ const handleDeleteFavorite = (id) => {
           Delete
         </button>
       </li>
-    </ul>
+    </transition-group>
   </div>
   <p v-else class="not-selected">You don't have any favorite photos yet...</p>
 </template>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .selected__title {
   margin: 20px;
   text-align: center;
