@@ -172,7 +172,7 @@ onUnmounted(() => {
   width: 100%;
   height: auto;
   display: block;
-  transition: outline 0.3s ease, box-shadow 0.3s ease;
+  transition: outline 0.3s ease;
 }
 
 @media (hover: hover) {
@@ -182,12 +182,6 @@ onUnmounted(() => {
   }
 }
 
-.carousel__img:active {
-  outline: 2px solid rgb(239, 125, 43);
-  outline-offset: -2px;
-  box-shadow: 0 0 10px rgba(239, 125, 43, 0.6);
-}
-
 .carousel__btn {
   position: absolute;
   top: 50%;
@@ -195,6 +189,7 @@ onUnmounted(() => {
   font-size: 40px;
   border: none;
   background: transparent;
+  outline: none;
   cursor: pointer;
   color: white;
   transition: color 0.2s ease;
@@ -204,10 +199,6 @@ onUnmounted(() => {
   .carousel__btn:hover {
     color: rgb(32, 66, 255);
   }
-}
-
-.carousel__btn:active {
-  color: rgb(32, 66, 255);
 }
 
 .carousel__btn--prev {
