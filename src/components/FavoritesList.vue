@@ -112,7 +112,7 @@ const handleDeleteFavorite = (id) => {
   padding: 2px 10px;
   cursor: pointer;
   box-shadow: 1px 1px 3px 0 black;
-  transition: 0.3s;
+  transition: box-shadow 0.3s ease;
 }
 
 @media (hover: hover) {

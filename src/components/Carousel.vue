@@ -172,7 +172,7 @@ onUnmounted(() => {
   width: 100%;
   height: auto;
   display: block;
-  transition: outline 0.3s ease;
+  transition: outline 0.3s ease, box-shadow 0.3s ease;
 }
 
 @media (hover: hover) {
@@ -197,6 +197,7 @@ onUnmounted(() => {
   background: transparent;
   cursor: pointer;
   color: white;
+  transition: color 0.2s ease;
 }
 
 @media (hover: hover) {
@@ -207,7 +208,6 @@ onUnmounted(() => {
 
 .carousel__btn:active {
   color: rgb(32, 66, 255);
-  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .carousel__btn--prev {
