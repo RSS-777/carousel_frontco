@@ -12,14 +12,26 @@ const handleDeleteFavorite = (id) => {
   <div class="selected" v-if="selectedStore.selected.length">
     <h2 class="selected__title">Selected Images</h2>
     <transition-group name="fade" tag="ul" class="selected__list">
-      <li v-for="item in selectedStore.selected" :key="item.id" class="selected__item">
+      <li
+        v-for="item in selectedStore.selected"
+        :key="item.id"
+        class="selected__item"
+      >
         <div>
-          <img :src="item.url" :alt="`Photo by ${item.author}`" class="selected__img" />
+          <img
+            :src="item.url"
+            :alt="`Photo by ${item.author}`"
+            class="selected__img"
+          />
           <span class="selected__url" :title="item.url">{{
             item.url.length > 25 ? item.url.slice(0, 25) + "..." : item.url
           }}</span>
         </div>
-        <button class="selected__button" type="button" @click="handleDeleteFavorite(item.id)">
+        <button
+          class="selected__button"
+          type="button"
+          @click="handleDeleteFavorite(item.id)"
+        >
           Delete
         </button>
       </li>
@@ -89,19 +101,27 @@ const handleDeleteFavorite = (id) => {
 .selected__button {
   border: none;
   border-radius: 10px;
-  background: linear-gradient(145deg,
-      rgba(180, 147, 113, 0.896),
-      rgb(191, 106, 27),
-      rgba(180, 147, 113, 0.896));
+  background: linear-gradient(
+    145deg,
+    rgba(180, 147, 113, 0.896),
+    rgb(191, 106, 27),
+    rgba(180, 147, 113, 0.896)
+  );
   color: white;
   font-size: 12px;
   padding: 2px 10px;
   cursor: pointer;
   box-shadow: 1px 1px 3px 0 black;
-  transition: 0.3s;
+  transition: box-shadow 0.3s ease;
 }
 
-.selected__button:hover {
+@media (hover: hover) {
+  .selected__button:hover {
+    box-shadow: 0.5px 0.5px 1px 0 black;
+  }
+}
+
+.selected__button:active {
   box-shadow: 0.5px 0.5px 1px 0 black;
 }
 
