@@ -92,21 +92,45 @@ onUnmounted(() => {
 <template>
   <div class="carousel">
     <div class="carousel__viewport" ref="carouselBlock">
-      <div class="carousel__track" :style="trackStyle" @transitionend="handleTransitionEnd">
-        <div class="carousel__item" v-for="(img, index) in extendedImages" :key="`${img.id}-${index}`"
-          :style="{ width: `${slideWidth}px` }" @click="handleAddFavorite(img)">
-          <img :src="img.url" :alt="`Photo by ${img.author}`" class="carousel__img" />
-          <span v-if="selectedStore.selected.some((i) => i.id === img.id)" class="carousel__heart">
+      <div
+        class="carousel__track"
+        :style="trackStyle"
+        @transitionend="handleTransitionEnd"
+      >
+        <div
+          class="carousel__item"
+          v-for="(img, index) in extendedImages"
+          :key="`${img.id}-${index}`"
+          :style="{ width: `${slideWidth}px` }"
+          @click="handleAddFavorite(img)"
+        >
+          <img
+            :src="img.url"
+            :alt="`Photo by ${img.author}`"
+            class="carousel__img"
+          />
+          <span
+            v-if="selectedStore.selected.some((i) => i.id === img.id)"
+            class="carousel__heart"
+          >
             ❤️
           </span>
         </div>
       </div>
     </div>
 
-    <button type="button" class="carousel__btn carousel__btn--prev" @click="scrollPrev">
+    <button
+      type="button"
+      class="carousel__btn carousel__btn--prev"
+      @click="scrollPrev"
+    >
       ‹
     </button>
-    <button type="button" class="carousel__btn carousel__btn--next" @click="scrollNext">
+    <button
+      type="button"
+      class="carousel__btn carousel__btn--next"
+      @click="scrollNext"
+    >
       ›
     </button>
   </div>
@@ -148,6 +172,20 @@ onUnmounted(() => {
   width: 100%;
   height: auto;
   display: block;
+  transition: outline 0.3s ease;
+}
+
+@media (hover: hover) {
+  .carousel__img:hover {
+    outline: 2px solid rgb(239, 125, 43);
+    outline-offset: -2px;
+  }
+}
+
+.carousel__img:active {
+  outline: 2px solid rgb(239, 125, 43);
+  outline-offset: -2px;
+  box-shadow: 0 0 10px rgba(239, 125, 43, 0.6);
 }
 
 .carousel__btn {
@@ -161,8 +199,15 @@ onUnmounted(() => {
   color: white;
 }
 
-.carousel__btn:hover {
+@media (hover: hover) {
+  .carousel__btn:hover {
+    color: rgb(32, 66, 255);
+  }
+}
+
+.carousel__btn:active {
   color: rgb(32, 66, 255);
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .carousel__btn--prev {
