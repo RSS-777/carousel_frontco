@@ -137,6 +137,11 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
 .carousel {
   position: relative;
   overflow: hidden;
@@ -175,13 +180,6 @@ onUnmounted(() => {
   transition: outline 0.3s ease;
 }
 
-@media (hover: hover) {
-  .carousel__img:hover {
-    outline: 2px solid rgb(239, 125, 43);
-    outline-offset: -2px;
-  }
-}
-
 .carousel__btn {
   position: absolute;
   top: 50%;
@@ -195,17 +193,33 @@ onUnmounted(() => {
   transition: color 0.2s ease;
 }
 
-@media (hover: hover) {
-  .carousel__btn:hover {
-    color: rgb(32, 66, 255);
-  }
-}
-
 .carousel__btn--prev {
   left: 0;
 }
 
 .carousel__btn--next {
   right: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .carousel__img:hover {
+    outline: 2px solid rgb(239, 125, 43);
+    outline-offset: -2px;
+  }
+
+  .carousel__btn:hover {
+    color: rgb(32, 66, 255);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .carousel__img:hover {
+    outline: none;
+    outline-offset: 0;
+  }
+
+  .carousel__btn:active {
+    color: rgb(32, 66, 255);
+  }
 }
 </style>
